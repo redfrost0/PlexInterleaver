@@ -111,7 +111,25 @@ def remove_watched_from_playlist(playlist_name, dry_run=False):
         print(f"\nSuccessfully removed {len(watched_items)} watched episodes from '{playlist_name}'.")
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="Plex Playlist Interleaver and Cleaner CLI Tool")
+    parser = argparse.ArgumentParser(
+        description="Plex Playlist Interleaver and Cleaner CLI Tool",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=(
+            "To see help and options for a specific command, run:\n"
+            "  python plex_interleaver.py <command> --help\n\n"
+            "Examples:\n"
+            "  List all available TV shows:\n"
+            "    python plex_interleaver.py list-shows\n\n"
+            "  Dry run creating a 'Cartoon Time' playlist with custom shows:\n"
+            "    python plex_interleaver.py create \"Cartoon Time\" --shows \"Regular Show\" \"Adventure Time\" --skip-watched --dry-run\n\n"
+            "  Create/overwrite a playlist in Plex:\n"
+            "    python plex_interleaver.py create \"Cartoon Time\" --shows \"Regular Show\" \"Adventure Time\" --skip-watched\n\n"
+            "  Dry run cleaning watched episodes from an existing playlist:\n"
+            "    python plex_interleaver.py clean \"Cartoon Time\" --dry-run\n\n"
+            "  Clean watched episodes from a playlist in Plex:\n"
+            "    python plex_interleaver.py clean \"Cartoon Time\""
+        )
+    )
     
     subparsers = parser.add_subparsers(dest="command", required=True, help="Command to run")
     
