@@ -25,6 +25,17 @@ PLEX_URL=http://your-plex-ip:32400
 PLEX_TOKEN=your-plex-token
 ```
 
+### How to Find Your Plex Token
+
+To locate your Plex API token (X-Plex-Token):
+
+1. Sign in to your Plex Web App in a browser (e.g., http://your-plex-ip:32400 or app.plex.tv).
+2. Click on any media item (a movie, show, or episode) to open its details page.
+3. Click the ellipsis (...) button on the details page.
+4. Select "Get Info" from the menu.
+5. In the info window, click the "View XML" link.
+6. A new browser tab or window will open showing the XML data. Look at the address bar; your Plex token is the string at the very end of the URL following `X-Plex-Token=`.
+
 ## CLI Reference
 
 ### Global Commands
